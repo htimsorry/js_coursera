@@ -1,0 +1,25 @@
+<div class="row">
+
+    <table class="table table-hover table-condensed wide-table">
+        <thead>
+        <tr>
+            <th class="col-md-2">Name</th>
+            <th class="col-md-1">Short Name</th>
+            <th class="col-md-1">Price Small</th>
+            <th class="col-md-1">Price Large</th>
+            <th class="col-md-7">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="item in $ctrl.items">
+            <th>{{ item['name'] }}</th>
+            <td>{{ item['short_name'] }}</td>
+            <td>{{ item['price_small'] ? item['price_small'] : 'N/A' }}</td>
+            <td>{{ item['price_large'] ? item['price_large'] : 'N/A'}}</td>
+            <td>{{ item['description'] }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>

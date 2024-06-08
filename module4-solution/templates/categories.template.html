@@ -1,0 +1,21 @@
+<div class="row">
+
+    <table class="table table-hover table-condensed narrow-table">
+        <thead>
+        <tr>
+            <th class="col-md-3">Name</th>
+            <th class="col-md-2">Short Name</th>
+            <th class="col-md-3">Category Items</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="category in $ctrl.categories">
+            <th>{{ category['name'] }}</th>
+            <td>{{ category['short_name'] }}</td>
+            <td><a ui-sref="items({categoryShortName: '{{ category['short_name'] }}'})">Link</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
