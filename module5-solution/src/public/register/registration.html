@@ -1,0 +1,71 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <h2 class="text-center">Please sign up for our newsletter!</h2>
+
+    <div class="row text-center">
+        <form name='regForm' class="reg-form col-centered col-md-6 col-sm-6 col-xs-12 col-xxs-12" novalidate>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" required
+                       ng-model="regCtrl.user.firstName"
+                       id="firstName" name="firstName" placeholder="e.g. John">
+                <div ng-if="regForm.firstName.$error.required && regForm.firstName.$touched">
+                    First name must be present.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" required
+                       ng-model="regCtrl.user.lastName"
+                       id="lastName" name="lastName" placeholder="e.g. Smith">
+                <div ng-if="regForm.lastName.$error.required && regForm.lastName.$touched">
+                    Last name must be present.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email1">Email Address</label>
+                <input type="email" class="form-control" required
+                       ng-model="regCtrl.user.email"
+                       id="email1" name="email" placeholder="e.g. abc@example.com">
+                <div ng-if="regForm.email.$invalid && regForm.email.$touched">
+                    Email must be present and in the correct format.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" class="form-control" required
+                       ng-model="regCtrl.user.phone"
+                       pattern="(\d{3})-(\d{3})-(\d{4})"
+                       id="phone" name="phone" placeholder="e.g. 123-456-7890">
+                <div ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+                    Phone number must be present and in the correct format.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="favDish">Menu Number of Your Favorite Dish</label>
+                <input type="text" class="form-control"
+                       ng-model="regCtrl.user.favDish"
+                       id="favDish" name="favDish" placeholder="e.g. A1">
+                <div ng-if="regForm.favDish.$invalid && regForm.favDish.$touched">
+                    Favorite dish must be present.
+                </div>
+                <div ng-if="regCtrl.status == 'not found'">
+                    No such menu number exists. Your information was not saved.
+                </div>
+            </div>
+
+            <button ng-disabled="regForm.$invalid" type="submit"
+                    ng-click="regCtrl.submit()" class="btn btn-primary">Submit
+            </button>
+
+            <div class="reg-confirm" ng-if="regCtrl.status == 'saved'">
+                Your information has been saved.
+                See my <span class="info-link"><a ui-sref="public.info">info</a></span>.
+            </div>
+        </form>
+    </div>
+
+</div>

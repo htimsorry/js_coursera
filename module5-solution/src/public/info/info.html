@@ -1,0 +1,51 @@
+<div class="container">
+
+    <div ng-if="!infoCtrl.user.firstName">
+        Not Signed Up Yet.
+        <span class="reg-link"><a ui-sref="public.register">Sign up Now!</a></span>
+    </div>
+
+    <div ng-if="infoCtrl.user.firstName">
+        <h2 class="text-center">Registration Information</h2>
+
+        <div class="row text-center">
+            <div class="info-form col-centered col-md-6 col-sm-6 col-xs-12 col-xxs-12">
+                <label class="col-xs-5 col-xxs-12">First Name</label>
+                <span class="col-xs-7 col-xxs-12">{{ infoCtrl.user.firstName }}</span>
+                <br/>
+
+                <label class="col-xs-5 col-xxs-12">Last Name</label>
+                <span class="col-xs-7 col-xxs-12">{{ infoCtrl.user.lastName }}</span>
+                <br/>
+
+                <label class="col-xs-5 col-xxs-12">Email Address</label>
+                <span class="col-xs-7 col-xxs-12">{{ infoCtrl.user.email }}</span>
+                <br/>
+
+                <label class="col-xs-5 col-xxs-12">Phone Number</label>
+                <span class="col-xs-7 col-xxs-12">{{ infoCtrl.user.phone }}</span>
+                <br/>
+
+                <label class="col-xs-5">Your Favorite Dish</label>
+                <span class="col-xs-7 col-xxs-12">
+                    {{ infoCtrl.favItem.name ? infoCtrl.favItem.name : 'not provided'}}
+                </span>
+                <br/>
+
+                <label class="col-xs-5"></label>
+                <span class="col-xs-7 col-xxs-12">
+                    <img class="img-responsive" width="250" height="150"
+                         ng-src="images/menu/{{ infoCtrl.category }}/{{ infoCtrl.favItem.short_name }}.jpg"
+                         alt="{{ infoCtrl.favItem.name }}">
+                </span>
+                <br />
+
+                <label class="col-xs-5"></label>
+                <span class="col-xs-7 col-xxs-12">
+                    {{ infoCtrl.favItem.description }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+</div>
